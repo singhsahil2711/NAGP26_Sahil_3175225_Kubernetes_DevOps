@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-db-svc
+  namespace: nagpdemo
+  labels:
+    name: postgres-db-svc
+    app: postgres-k8s-deployment
+spec:
+  clusterIP: None
+  selector:
+    app: postgres-k8s-deployment
+    name: postgres-db
+  ports:
+    - port: 5432
+      targetPort: 5432

@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: postgres-db
+  namespace: nagpdemo
+  labels:
+    name: postgres-db
+    app: postgres-k8s-deployment
+spec:
+  serviceName: postgres-db-svc
+  replicas: 1
+  selector:
+    matchLabels:
+      app: postgres-k8s-deployment
+      name: postgres-db
+  template:
+    metadata:
+      labels:
+        app: postgres-k8s-deployment
+        name: postgres-db
+    spec:
+      containers:
+        - name: postgres
+          image: postgres:15
+          ports:
+            - containerPort: 5432
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          env:
+            - name: POSTGRES_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: postgres-password
+            - name: POSTGRES_USER
+              valueFrom:
+                secretKeyRef:
+                  name: postgres-credentials
+                  key: postgres-user
+            - name: POSTGRES_DB
+              valueFrom:
+                configMapKeyRef:
+                  name: postgres-config
+                  key: POSTGRES_DB
+          volumeMounts:
+            - name: postgres-data
+              mountPath: /var/lib/postgresql/data
+            - name: postgres-initdb
+              mountPath: /docker-entrypoint-initdb.d
+      volumes:
+        - name: postgres-initdb
+          configMap:
+            name: postgres-config
+            items:
+              - key: init.sql
+                path: init.sql
+        - name: postgres-data
+          persistentVolumeClaim:
+            claimName: postgres-pvc

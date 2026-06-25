@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata: 
+  name: db-config
+  labels:
+    name: db-config
+    app: nodejs-k8-api-service
+  namespace: nagpdemo
+data:
+  NODE_ENV: nagpdemo
+  DB_HOST: postgres-db-svc.nagpdemo.svc.cluster.local
+  DB_NAME: customers_db
+  DB_PORT: '5432'
