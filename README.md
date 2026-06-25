@@ -28,4 +28,4 @@ This project demonstrates deploying and managing a database and an API service w
 
 ## Video Demonstration
 
-- **Screen Recording:** [Video URL](https://nagarro-my.sharepoint.com/personal/sahil_singh02_nagarro_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Fsahil%5Fsingh02%5Fnagarro%5Fcom%2FDocuments%2FAttachments%2FDocker%5FK8s%5FAssignment%5FDemo%5FSahil%5F3175225%2Emp4&referrer=StreamWebApp%2EWeb&referrerScenario=AddressBarCopied%2Eview%2E0401ce39%2Da994%2D42a5%2Daee4%2D3e17a16674ff&ga=1)
+- **Screen Recording:** [Video URL](https://nagarro-my.sharepoint.com/:v:/p/sahil_singh02/IQB0EBq1CsqlQK4NugdwMrXSAZM88CWkdrLtn6iroD6e_ag?e=BIM2ju&nav=eyJyZWZlcnJhbEluZm8iOnsicmVmZXJyYWxBcHAiOiJTdHJlYW1XZWJBcHAiLCJyZWZlcnJhbFZpZXciOiJTaGFyZURpYWxvZy1MaW5rIiwicmVmZXJyYWxBcHBQbGF0Zm9ybSI6IldlYiIsInJlZmVycmFsTW9kZSI6InZpZXcifX0%3D)
